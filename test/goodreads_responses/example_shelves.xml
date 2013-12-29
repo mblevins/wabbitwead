@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GoodreadsResponse>
+  <Request>
+    <authentication>true</authentication>
+      <key><![CDATA[SD5knqEYmd8A6lNtfjtGg]]></key>
+    <method><![CDATA[review_list]]></method>
+  </Request>
+  <books start="1" end="5" total="5" numpages="1" currentpage="1">
+  <book>
+  <id type="integer">6963764</id>
+  <isbn nil="true"/>
+  <isbn13>9781937475673</isbn13>
+  <text_reviews_count type="integer">53</text_reviews_count>
+  <title>Captain's Share (Golden Age of the Solar Clipper, #5)</title>
+  <image_url>http://www.goodreads.com/assets/nocover/111x148.png</image_url>
+  <small_image_url>http://www.goodreads.com/assets/nocover/60x80.png</small_image_url>
+  <link>http://www.goodreads.com/book/show/6963764-captain-s-share</link>
+  <num_pages></num_pages>
+  <format>Audiobook</format>
+  <edition_information/>
+  <publisher></publisher>
+  <publication_day/>
+  <publication_year/>
+  <publication_month/>
+  <average_rating>4.40</average_rating>
+  <ratings_count>860</ratings_count>
+  <description>A shuffling of cabins puts Ishmael Horatio Wang in command of the worst ship in the fleet. He learns that being Captain doesn't make you infallible and that life in the Captain's Cabin is filled with new kinds of challenge as he tries to keep the ship moving, the crew out of trouble, and turn a profit to earn his Captain's Share. In a ship where the officers outnumber the crew, how can he manage to keep everybody happy? Welcome to the SC Agamemnon.</description>
+<authors>
+  <author>
+    <id>1048167</id>
+    <name>Nathan Lowell</name>
+    <image_url><![CDATA[http://d202m5krfqbpi5.cloudfront.net/authors/1265240926p5/1048167.jpg]]></image_url>
+    <small_image_url><![CDATA[http://d202m5krfqbpi5.cloudfront.net/authors/1265240926p2/1048167.jpg]]></small_image_url>
+    <link><![CDATA[http://www.goodreads.com/author/show/1048167.Nathan_Lowell]]></link>
+    <average_rating>4.23</average_rating>
+    <ratings_count>8964</ratings_count>
+    <text_reviews_count>765</text_reviews_count>
+  </author>
+</authors>
+  <published/>
+</book>
+
+  <book>
+  <id type="integer">3766428</id>
+  <isbn nil="true"/>
+  <isbn13 nil="true"/>
+  <text_reviews_count type="integer">67</text_reviews_count>
+  <title>Double Share (Golden Age of the Solar Clipper, #4)</title>
+  <image_url>http://d202m5krfqbpi5.cloudfront.net/books/1336059100m/3766428.jpg</image_url>
+  <small_image_url>http://d202m5krfqbpi5.cloudfront.net/books/1336059100s/3766428.jpg</small_image_url>
+  <link>http://www.goodreads.com/book/show/3766428-double-share</link>
+  <num_pages>10</num_pages>
+  <format>Podiobook</format>
+  <edition_information/>
+  <publisher>Podiobooks</publisher>
+  <publication_day/>
+  <publication_year>2008</publication_year>
+  <publication_month/>
+  <average_rating>4.32</average_rating>
+  <ratings_count>1202</ratings_count>
+  <description>&lt;strong&gt;AN INEXPERIENCED OFFICER. A DYSFUNCTIONAL SHIP. LIFE IN THE DEEP DARK JUST GOT A LOT HARDER.&lt;/strong&gt;&lt;br&gt;In his first assignment as an officer, Ishmael Horatio Wang finds himself fresh out of school, wet behind the ears, and way out of his depth. Aboard the William Tinker the senior officers are derelict and abusive, the crew demoralized and undisciplined, and change unwelcomed and dangerous. Can Ishmael use what he learned aboard the Lois McKendrick to help the crew find the ship’s heart? Or will he discover that bucking the system may come at too high a price? Return to the Deep Dark with Ish in this fourth installment of the award winning Solar Clipper Series as he makes the transition from crew to officer.&lt;br&gt;&lt;br&gt;&lt;em&gt;“Fans of Nathan Lowell’s Solar Clipper series are legion, and for just cause. Each book provides another chapter in the life of one of the most endearing characters to come along in recent memory. Nathan demonstrates that suburb story telling doesn’t require massive space battles or warring aliens, just great characters and a knack for spinning a really compelling tale.” —Michael J. Sullivan, author of the Riyria Revelations&lt;/em&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;2009 PARSEC AWARD FINALIST FOR BEST SPECULATIVE FICTION&lt;/strong&gt;&lt;br&gt;&lt;br&gt;BOOKS BY NATHAN LOWELL&lt;br&gt;&lt;em&gt;Books in the Golden Age of the Solar Clipper&lt;/em&gt;&lt;br&gt;Quarter Share&lt;br&gt;Half Share&lt;br&gt;Full Share&lt;br&gt;Double Share&lt;br&gt;Captain’s Share*&lt;br&gt;Owner’s Share*&lt;br&gt;&lt;br&gt;&lt;em&gt;Shaman Tales&lt;/em&gt;&lt;br&gt;South Coast*&lt;br&gt;Cape Grace*&lt;br&gt;&lt;br&gt;*Forthcoming&lt;br&gt;&lt;br&gt;&lt;strong&gt;AWARDS FOR GOLDEN AGE OF THE SOLAR CLIPPER SERIES&lt;/strong&gt;&lt;br&gt;Awards for Golden Age Series&lt;br&gt;2011 Parsec Award Winner for Best Speculative Fiction for Owner’s Share&lt;br&gt;2010 Parsec Award Winner for Best Speculative Fiction for Captain’s Share&lt;br&gt;2009 Parsec Award Finalist for Best Speculative Fiction for Double Share&lt;br&gt;2009 Podiobooks Founder’s Choice Award for Captain’s Share&lt;br&gt;2008 Parsec Award Finalist for Best Speculative Fiction for Full Share&lt;br&gt;2008 Podiobooks Founder’s Choice Award for Double Share</description>
+<authors>
+  <author>
+    <id>1048167</id>
+    <name>Nathan Lowell</name>
+    <image_url><![CDATA[http://d202m5krfqbpi5.cloudfront.net/authors/1265240926p5/1048167.jpg]]></image_url>
+    <small_image_url><![CDATA[http://d202m5krfqbpi5.cloudfront.net/authors/1265240926p2/1048167.jpg]]></small_image_url>
+    <link><![CDATA[http://www.goodreads.com/author/show/1048167.Nathan_Lowell]]></link>
+    <average_rating>4.23</average_rating>
+    <ratings_count>8964</ratings_count>
+    <text_reviews_count>765</text_reviews_count>
+  </author>
+</authors>
+  <published>2008</published>
+</book>
+
+  <book>
+  <id type="integer">4266110</id>
+  <isbn nil="true"/>
+  <isbn13 nil="true"/>
+  <text_reviews_count type="integer">65</text_reviews_count>
+  <title>Full Share (Golden Age of the Solar Clipper, #3)</title>
+  <image_url>http://d202m5krfqbpi5.cloudfront.net/books/1308318918m/4266110.jpg</image_url>
+  <small_image_url>http://d202m5krfqbpi5.cloudfront.net/books/1308318918s/4266110.jpg</small_image_url>
+  <link>http://www.goodreads.com/book/show/4266110-full-share</link>
+  <num_pages>300</num_pages>
+  <format>Audio</format>
+  <edition_information/>
+  <publisher></publisher>
+  <publication_day/>
+  <publication_year>2008</publication_year>
+  <publication_month/>
+  <average_rating>4.29</average_rating>
+  <ratings_count>1394</ratings_count>
+  <description></description>
+<authors>
+  <author>
+    <id>1048167</id>
+    <name>Nathan Lowell</name>
+    <image_url><![CDATA[http://d202m5krfqbpi5.cloudfront.net/authors/1265240926p5/1048167.jpg]]></image_url>
+    <small_image_url><![CDATA[http://d202m5krfqbpi5.cloudfront.net/authors/1265240926p2/1048167.jpg]]></small_image_url>
+    <link><![CDATA[http://www.goodreads.com/author/show/1048167.Nathan_Lowell]]></link>
+    <average_rating>4.23</average_rating>
+    <ratings_count>8964</ratings_count>
+    <text_reviews_count>765</text_reviews_count>
+  </author>
+</authors>
+  <published>2008</published>
+</book>
+
+  <book>
+  <id type="integer">2906048</id>
+  <isbn nil="true"/>
+  <isbn13 nil="true"/>
+  <text_reviews_count type="integer">84</text_reviews_count>
+  <title>Half Share (Golden Age of the Solar Clipper, #2)</title>
+  <image_url>http://d202m5krfqbpi5.cloudfront.net/books/1336059234m/2906048.jpg</image_url>
+  <small_image_url>http://d202m5krfqbpi5.cloudfront.net/books/1336059234s/2906048.jpg</small_image_url>
+  <link>http://www.goodreads.com/book/show/2906048-half-share</link>
+  <num_pages></num_pages>
+  <format>Podiobook</format>
+  <edition_information/>
+  <publisher>podiobooks.com</publisher>
+  <publication_day/>
+  <publication_year>2007</publication_year>
+  <publication_month/>
+  <average_rating>4.19</average_rating>
+  <ratings_count>1531</ratings_count>
+  <description>SIX MONTHS IN THE DEEP DARK. FOUR VERY DIFFERENT WOMEN. ONE MAN DISCOVERS WHAT IT MEANS TO BE A SPACER. It's a time of change on the Lois McKendrick. Sarah Krugg joins the mess deck and Ishmael Wang moves to the environmental section. Just after getting accustomed to life aboard a solar clipper, Ishmael must learn a whole new set of skills, face his own fears and doubts, and try to balance love and loss in the depths of space. Both Ish and Sarah must learn to live by the mantra, "Trust Lois." For Sarah, there is the hope of escaping a horrifying past. For Ish, he must discover what type of man he wants to become and learn the consequences of his choices. Return with the crew of the SC Lois McKendrick, as you set sail in the next installment of the Trader Tales of the Solar Clipper Series. All your favorites return: Ish, Pip, Cookie, Brill, Diane, and Big Bad Bev. You might even discover some new friends as you travel among the stars. BOOKS IN THE GOLDEN AGE OF THE SOLAR CLIPPER Trader Tales Quarter Share Half Share Full Share Double Share Captain's Share Owner's Share* Shaman Tales South Coast Cape Grace* *Forthcoming</description>
+<authors>
+  <author>
+    <id>1048167</id>
+    <name>Nathan Lowell</name>
+    <image_url><![CDATA[http://d202m5krfqbpi5.cloudfront.net/authors/1265240926p5/1048167.jpg]]></image_url>
+    <small_image_url><![CDATA[http://d202m5krfqbpi5.cloudfront.net/authors/1265240926p2/1048167.jpg]]></small_image_url>
+    <link><![CDATA[http://www.goodreads.com/author/show/1048167.Nathan_Lowell]]></link>
+    <average_rating>4.23</average_rating>
+    <ratings_count>8964</ratings_count>
+    <text_reviews_count>765</text_reviews_count>
+  </author>
+</authors>
+  <published>2007</published>
+</book>
+
+  <book>
+  <id type="integer">2334538</id>
+  <isbn nil="true"/>
+  <isbn13 nil="true"/>
+  <text_reviews_count type="integer">212</text_reviews_count>
+  <title>Quarter Share (Golden Age of the Solar Clipper, #1)</title>
+  <image_url>http://d202m5krfqbpi5.cloudfront.net/books/1273808382m/2334538.jpg</image_url>
+  <small_image_url>http://d202m5krfqbpi5.cloudfront.net/books/1273808382s/2334538.jpg</small_image_url>
+  <link>http://www.goodreads.com/book/show/2334538.Quarter_Share</link>
+  <num_pages>250</num_pages>
+  <format>Audiobook</format>
+  <edition_information>Podiobook</edition_information>
+  <publisher>Nathan Lowell</publisher>
+  <publication_day/>
+  <publication_year>2007</publication_year>
+  <publication_month/>
+  <average_rating>4.16</average_rating>
+  <ratings_count>2054</ratings_count>
+  <description>&lt;strong&gt;
+  &lt;em&gt;THE GOLDEN AGE OF SAIL HAS RETURNED -- IN THE YEAR 2351&lt;/em&gt;
+&lt;/strong&gt;&lt;br&gt;&lt;br&gt;When his mother dies in a flitter crash, eighteen-year-old Ishmael Horatio Wang must find a job with the planet company or leave the system--and NerisCo isn't hiring. With credits running low, and prospects limited, he has just one hope...to enlist for two years with a deep space commercial freighter. Ishmael, who only rarely visited the Neris Orbital, and has never been off-planet alone before, finds himself part of an eclectic crew sailing a deep space leviathan between the stars. &lt;br&gt;&lt;br&gt;Join the crew of the SC Lois McKendrick, a Manchester built clipper as she sets solar sails in search of profit for her company and a crew each entitled to a share equal to their rating.</description>
+<authors>
+  <author>
+    <id>1048167</id>
+    <name>Nathan Lowell</name>
+    <image_url><![CDATA[http://d202m5krfqbpi5.cloudfront.net/authors/1265240926p5/1048167.jpg]]></image_url>
+    <small_image_url><![CDATA[http://d202m5krfqbpi5.cloudfront.net/authors/1265240926p2/1048167.jpg]]></small_image_url>
+    <link><![CDATA[http://www.goodreads.com/author/show/1048167.Nathan_Lowell]]></link>
+    <average_rating>4.23</average_rating>
+    <ratings_count>8964</ratings_count>
+    <text_reviews_count>765</text_reviews_count>
+  </author>
+</authors>
+  <published>2007</published>
+</book>
+
+</books>
+</GoodreadsResponse>
