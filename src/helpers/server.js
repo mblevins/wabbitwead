@@ -1,10 +1,11 @@
+'use strict';
 
 /**
  * Module dependencies.
  */
 
 var express = require('express');
-var _ = require('underscore');
+// var _ = require('underscore');
 var http = require('http');
 var path = require('path');
 var cons = require('consolidate');
@@ -43,4 +44,4 @@ exports.startServer = function( ) {
     http.createServer(app).listen(app.get('port'), function(){
       console.log('Express server listening on port ' + app.get('port'));
     });
-}
+};

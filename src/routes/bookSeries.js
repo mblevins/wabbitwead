@@ -1,6 +1,6 @@
 'use strict';
 
-/// var _ = require('underscore');
+//var _ = require('underscore');
 var bookDB = require('../models/bookDB');
 var navbar = require('../routes/navbar');
 
@@ -10,10 +10,12 @@ var navbar = require('../routes/navbar');
 
 exports.list = function(req, res){
     
-    var books = bookDB.getBooksBySeriesName( req.params.id );
+    var books = bookDB.getBooksByShelfName( req.params.id );
+    var thisSeries = bookDB.getSeriesByShelfName( req.params.id );
     
     res.render('layout', {
-        authors: navbar.list(),
+        thisSeries: thisSeries,
+        navbarList: navbar.list(),
         books: books,
         partials: { navbar: "navbar", body: "bookSeries" }
      });

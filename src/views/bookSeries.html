@@ -1,5 +1,9 @@
-<ul>
+<p class="lead">{{thisSeries.description}}</p>
+<table class="table">
   {{#books}}
-    <li> {{title}}</a>
+    <tr>
+    <td><a href="{{link}}" ><img src="{{image_url}}"/></a></td>
+    <td><strong>{{title}}</strong><br/>&nbsp;<br/>{{{description}}}</td>
+  <tr>
   {{/books}}
-</ul>
+</table>

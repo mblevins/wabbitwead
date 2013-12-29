@@ -34,3 +34,5 @@ describe('index', function(){
     })
   })
 });
+
+appx.serverStop();

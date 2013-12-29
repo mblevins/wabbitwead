@@ -1,12 +1,67 @@
 [
     {
+        "shelfName": "wabbit-exheroes",
+        "seriesName": "Ex-Heroes",        
+        "description": "Super heroes vs. Zombies! (Peter Clines)"
+    },
+    {
         "shelfName": "wabbit-golden-age-sail",
         "seriesName": "Golden Age of Sail",        
-        "description": "Haratio Wang's adventures in space."
+        "description": "Haratio Wang's adventures in space (Nathan Lowell)"
     },
     {
         "shelfName": "wabbit-kate-daniels",
         "seriesName": "Kate Daniels",        
-        "description": "Kate Daniels Magic Series"
+        "description": "Kate Daniels Magic Series (Ilona Andrews)"
+    },
+    {
+        "shelfName": "wabbit-october",
+        "seriesName": "October Daye",        
+        "description": "Halfing Fairy Queen in San Francisco (Seanan McGuire)"
+    },
+    {
+        "shelfName": "wabbit-newsflesh",
+        "seriesName": "Newsflesh",        
+        "description": "Zombies and Bloggers (Mira Grant aka Seanan McGuire)"
+    },
+    {
+        "shelfName": "wabbit-innkeeper",
+        "seriesName": "Innkeeper Chronicles",        
+        "description": "Magical Innkeeper (Ilona Andrews)"
+    },
+    {
+        "shelfName": "wabbit-greywalker",
+        "seriesName": "Grey Walker",        
+        "description": "She sees ghosts (Kat Richardson)"
+    },
+    {
+        "shelfName": "wabbit-kitty",
+        "seriesName": "Kitty Norville",        
+        "description": "Kitty the Wearwolf (Carrie Vaughn)"
+    },
+    {
+        "shelfName": "wabbit-goldenage",
+        "seriesName": "Golden Age of Super Heroes",        
+        "description": "Golden Age of Super Heroes (Carrie Vaughn)"
+    },
+    {
+        "shelfName": "wabbit-petergrant",
+        "seriesName": "Peter Grant - Constable",
+        "description": "Peter Grant, the London Magic Constable (Ben Aaronovitch)"
+    },
+    {
+        "shelfName": "wabbit-dresden",
+        "seriesName": "Dresden Files", 
+        "description": "The infamous Harry Dresden (Jim Butcher)"
+    },
+    {
+        "shelfName": "wabbit-jumper",
+        "seriesName": "Jumper", 
+        "description": "Boy learns to teleport (Steven Gould)"
+    },
+    {
+        "shelfName": "wabbit-other",
+        "seriesName": "Books without a series", 
+        "description": "Misc. Books"
     }
 ]

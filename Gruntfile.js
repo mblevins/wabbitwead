@@ -39,8 +39,12 @@ module.exports = function(grunt) {
           }
         },
 
-        genGoodreadsModel: {
+        genmodel: {
             gen: {}
+        },
+        
+        sanity: {
+            sanity: {}
         }
     });
     grunt.loadTasks('./grunttasks');

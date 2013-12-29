@@ -5,6 +5,7 @@ var fs = require('fs');
 var sax = require("sax");
 var http = require('http');
 var config = require('config');
+var path = require('path');
 
 
 // goodreads options
@@ -21,8 +22,11 @@ var bookModelFile = path.join( config.Models.dir, "books.json" );
 // where the series model file is
 var seriesModelFile = path.join( config.Models.dir, "series.json");
 
+// override exceptions
+var exceptionsFile = path.join( config.Models.dir, "exceptions.json");
+
 /* 
- * bookDB is persisted in modelFile
+ * bookDB is persisted in books.json
  * Array of:
  * {
  *   id: book-id
@@ -32,24 +36,13 @@ var seriesModelFile = path.join( config.Models.dir, "series.json");
  *   link: link to goodreads
  *   publication_year: year published
  *   description: description with html tags
- *   authors: [see authors]
+ *   authors: First author of the book
  * }
  */
 var bookDB = [];
 
-
 /* 
- * authorDB is calculated
- * Array of:
- * {
- *   id: author-id
- *   name: author-name
- * }
- */
-var authorDB = [];
-
-/* 
- * seriesDB is semi-calculated
+ * seriesDB is persisyed in series.json
  * Array of:
  * {
  *   shelfName: goodreads shelf-name
@@ -64,20 +57,27 @@ function readModel() {
     // assume bookDB and seriesDB are init'ed at same time
     if (bookDB.length === 0) {
         bookDB = JSON.parse( fs.readFileSync( bookModelFile ) );
-        // calc authors
-        _.each( bookDB, function(book, context) {
-            _.each( book.authors, function( author, context ){
-                if (!exports.getAuthorByAuthorID(author.id)) {
-                    authorDB.push( author );
-                }
-            });
-
-        });
         seriesDB = JSON.parse( fs.readFileSync( seriesModelFile ) );
     }
 }
 
-function writeModel() {
+function writeModel( doneWrapperParam ) {
+    // calc exceptions
+    var exceptionDB = JSON.parse( fs.readFileSync( exceptionsFile ) );
+    _.each( bookDB, function(book, context) {
+        var exception = _.findWhere( exceptionDB, { id: book.id } );
+        if (exception !== undefined) {
+            if (exception.description !== undefined) {
+                book.description = exception.description;
+            }
+            if (exception.publication_year !== undefined) {
+                book.publication_year = exception.publication_year;
+            }
+            if (exception.publication_month !== undefined) {
+                book.publication_month = exception.publication_month;
+            }
+        }
+    });
     try {
         console.log("writing " + bookModelFile );
         fs.writeFileSync( bookModelFile, JSON.stringify(bookDB, null, " "));
@@ -103,7 +103,7 @@ function DoneWrapper( doneWrapperParam ) {
         endShelf: function() {
             numShelfs--;
             if (numLists === 0 && numShelfs === 0) {
-                writeModel();
+                writeModel( doneWrapperParam );
                 doneWrapper();
             }
         },
@@ -111,7 +111,7 @@ function DoneWrapper( doneWrapperParam ) {
             numLists--;
             if (numLists === 0 && numShelfs === 0) {
                 writeModel();
-                doneWrapper();
+                doneWrapper( doneWrapperParam );
             }
         },
         error: function(e) {
@@ -124,7 +124,6 @@ function ShelfGetter( shelfNameParam, doneWrapperParam ) {
     
     var curBook = "";
     var curText = "";
-    var curAuthor = "";
     var curPath = [];
     var curError = null;
     var doneWrapper = doneWrapperParam;
@@ -149,10 +148,6 @@ function ShelfGetter( shelfNameParam, doneWrapperParam ) {
         if (curPathStr === "/GOODREADSRESPONSE/BOOKS/BOOK") {
             curBook = {};
             curBook["shelf_name"] = shelfName;
-            curBook["authors"] = [];
-        }
-        else if (curPathStr === "/GOODREADSRESPONSE/BOOKS/BOOK/AUTHORS/AUTHOR") {
-            curAuthor = {};
         }
         curText = "";
     };
@@ -181,14 +176,14 @@ function ShelfGetter( shelfNameParam, doneWrapperParam ) {
         else if (curPathStr === "/GOODREADSRESPONSE/BOOKS/BOOK/PUBLICATION_YEAR") {
             curBook["publication_year"] = curText;
         }
-        else if (curPathStr === "/GOODREADSRESPONSE/BOOKS/BOOK/AUTHORS/AUTHOR") {
-            curBook.authors.push( curAuthor );
-        }
-        else if (curPathStr === "/GOODREADSRESPONSE/BOOKS/BOOK/AUTHORS/AUTHOR/ID") {
-            curAuthor["id"] = curText;
+        else if (curPathStr === "/GOODREADSRESPONSE/BOOKS/BOOK/PUBLICATION_MONTH") {
+            curBook["publication_month"] = curText;
         }
         else if (curPathStr === "/GOODREADSRESPONSE/BOOKS/BOOK/AUTHORS/AUTHOR/NAME") {
-            curAuthor["name"] = curText;
+            // we just take the first
+            if (curBook["author"] === undefined) {
+                curBook["author"] = curText;     
+            }
         }
         if (curPath.pop() !== t ) {
             console.log("Oops, tags don't match, bailing");
@@ -212,24 +207,34 @@ function ShelfGetter( shelfNameParam, doneWrapperParam ) {
             "/review/list?format.xml" +
             "&id=" + goodreadOptions.user +
             "&key=" + goodreadOptions.appKey +
-            "&shelf=" + shelfName;
+            "&shelf=" + shelfName +
+            "&sort=position";
             
         console.log("making request: " + "http://" + httpOptions.host + ":" + httpOptions.port + httpOptions.path );
         doneWrapper.startShelf();
         var req = http.get(httpOptions, function(resp) {
             resp.on('data', function( chunk ) {
-                console.log("Got a chunk of data");
                 // good place to call parser.write, but it doesn't seem happy with chunks
                 xmlStr = xmlStr + chunk;
             });
             resp.on('end', function() {
-                console.log("Got end: " + resp.statusCode);
+                console.log("Got end for: " + "http://" + httpOptions.host + ":" + httpOptions.port + httpOptions.path + ", respcode=" + resp.statusCode);
                 if (resp.statusCode !== 200) {
                     console.log( "Status isn't right, bailing out");
                     doneWrapper.error( new Error("Bad status"));
                 }
                 else {
                     console.log("Starting parse");
+                    // some debugging
+                    try {
+                        var shelfXMLFile = path.join( config.Models.dir, "shelf-" + shelfName + ".xml" );
+                        console.log("writing " + shelfXMLFile );
+                        fs.writeFileSync( shelfXMLFile, xmlStr );
+                    }
+                    catch( err ) {
+                        console.log("Error writing file: " + err);
+                    }
+                    
                     parser.write( xmlStr );
                     parser.close();
                 }
@@ -323,12 +328,11 @@ function ShelfListGetter( doneWrapperParam ) {
         doneWrapper.startList();
         var req = http.get(httpOptions, function(resp) {
             resp.on('data', function( chunk ) {
-                console.log("Got a chunk of data");
                 // good place to call parser.write, but it doesn't seem happy with chunks
                 xmlStr = xmlStr + chunk;
             });
             resp.on('end', function() {
-                console.log("Got end: " + resp.statusCode);
+                console.log("Got end for: " + "http://" + httpOptions.host + ":" + httpOptions.port + httpOptions.path + ", respcode=" + resp.statusCode);
                 if (resp.statusCode !== 200) {
                     console.log( "Status isn't right, bailing out");
                     doneWrapper.error( new Error("Bad status"));
@@ -350,42 +354,36 @@ function ShelfListGetter( doneWrapperParam ) {
     };
 }
 
-exports.getAuthors = function() {
-    readModel();
-    return authorDB;
-};
-
 exports.getSeries = function() {
     readModel();
     return seriesDB;
 };
 
-exports.getAuthorByAuthorID = function( authorID ){
+exports.getSeriesByShelfName = function( shelfName ) {
     readModel();
-    var author = _.find( authorDB, function( author, context) {
-        return (author.id === authorID );
+
+    var series = _.find( seriesDB, function( series, context) {
+        return(series.shelfName === shelfName );
     });
-    return author;
+    return series;
 };
 
-exports.getBooksByAuthorID = function( authorID ) {
+exports.getBooksByShelfName = function( shelfName ) {
     readModel();
     var books = _.filter( bookDB, function( book, context) {
-        var foundAuthors = _.find( book.authors, function( author, context) {
-            return (author.id === authorID );
-        });
-        return( foundAuthors !== undefined );
+        return(book.shelf_name === shelfName );
     });
     return books;
 };
 
-
-exports.getBooksBySeriesName = function( seriesName ) {
+exports.getAllBooks = function() {
     readModel();
-    var books = _.filter( bookDB, function( book, context) {
-        return(book.shelf_name === seriesName );
-    });
-    return books;
+    return bookDB;
+};
+
+
+exports.forceReRead = function() {
+    bookDB.length = 0;
 };
 
 /*

@@ -11,7 +11,7 @@ var navbar = require('../routes/navbar');
 exports.list = function(req, res){
 
     res.render('layout', {
-        authors: navbar.list(),
+        navbarList: navbar.list(),
         partials: { navbar: "navbar", body: "welcome" }
      });
 };
