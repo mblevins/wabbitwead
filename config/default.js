@@ -2,7 +2,7 @@ path = require("path");
 
 module.exports = {
     Server: {
-        port: 3000,
+        port: 3001,
         useErrorHandler: true
     },
     Models: {
